@@ -1,0 +1,205 @@
+{
+ "updated": "2026-10-24",
+ "news": [
+  {
+   "active": true,
+   "city": "kaohsiung",
+   "ctx": "2026 年 8 月 23 日豪雨猛炸南台灣，各地道路積淹水、路樹傾倒，高雄、屏東合計撤離超過 2,000 人。",
+   "ctxEn": "On 23 August 2026, torrential rain hit southern Taiwan, flooding roads and toppling trees; more than 2,000 people were evacuated across Kaohsiung and Pingtung.",
+   "date": "2026-08-23",
+   "en": "Over 2,000 evacuated in downpours",
+   "hit": {
+    "business": -3,
+    "elder": -7,
+    "family": -6
+   },
+   "island": "safety",
+   "lesson": "撤離要在雨還沒最大時就決定，太早被說擾民，太晚就來不及。",
+   "lessonEn": "Evacuation must be called before the worst rain: too early looks disruptive, too late is deadly.",
+   "options": [
+    {
+     "cost": 6,
+     "crews": 2,
+     "dur": 10,
+     "en": "Open shelters and send transport",
+     "fx": {
+      "elder": 6,
+      "family": 4
+     },
+     "label": "開設收容所、派車接送撤離",
+     "note": "保住人命最優先，但很吃人力。",
+     "noteEn": "Lives first, but labor-intensive."
+    },
+    {
+     "cost": 12,
+     "crews": 2,
+     "dur": 16,
+     "en": "Pay relief and speed up cleanup",
+     "fx": {
+      "business": 4,
+      "elder": 2,
+      "family": 4
+     },
+     "label": "發放災後救助金、加速清理",
+     "note": "讓生活快點恢復，花費不小。",
+     "noteEn": "Gets life back faster, at real cost."
+    },
+    {
+     "chance": 0.5,
+     "cost": 0,
+     "crews": 1,
+     "dur": 5,
+     "en": "Issue alerts and ask residents to self-evacuate",
+     "failFx": {
+      "elder": -6,
+      "family": -4
+     },
+     "fx": {
+      "family": 2
+     },
+     "label": "只發警報、請居民自主撤離",
+     "note": "省資源，但行動不便的長輩可能來不及。",
+     "noteEn": "Saves resources, but frail elders may not make it."
+    }
+   ],
+   "sev": 3,
+   "src": {
+    "t": "中央社 2026-08-23",
+    "u": "https://cna.com.tw/news/aloc/202608230143.aspx"
+   },
+   "title": "豪雨撤離逾 2,000 人",
+   "ttl": 35,
+   "id": "kh-evac-20260823"
+  },
+  {
+   "active": true,
+   "city": "taichung",
+   "ctx": "交通部 9 月公布，2026 年 1 到 7 月全國 65 歲以上交通死亡 697 人，比去年同期增加 5%；台中增加 14 人，增幅全國第二。機車在路口左轉被對向車撞是常見情形。",
+   "ctxEn": "Ministry data released in September show 697 people aged 65+ died on Taiwan’s roads from January to July 2026, up 5%. Taichung’s rise of 14 was the second largest; scooters hit while turning left at intersections are a common case.",
+   "date": "2026-09-29",
+   "en": "Elderly road deaths rise again",
+   "hit": {
+    "elder": -8,
+    "family": -4
+   },
+   "island": "eldercare",
+   "lesson": "很多長輩靠機車維持生活，要讓他們少騎車，就得先給他們別的選擇。",
+   "lessonEn": "Many elders rely on scooters; to get them off, you first have to offer another option.",
+   "options": [
+    {
+     "cost": 8,
+     "crews": 2,
+     "dur": 20,
+     "en": "Two-stage turns and left-turn signals",
+     "fx": {
+      "commuter": -3,
+      "elder": 6,
+      "family": 3
+     },
+     "label": "路口改兩段式左轉、加左轉燈",
+     "note": "減少最常見的事故，等燈時間變長。",
+     "noteEn": "Cuts the most common crash; waits get longer."
+    },
+    {
+     "cost": 12,
+     "crews": 1,
+     "dur": 22,
+     "en": "Community minibuses for elders",
+     "fx": {
+      "elder": 7,
+      "family": 2
+     },
+     "label": "社區小巴接送長輩",
+     "note": "長輩不用自己騎車，但每年都要營運費。",
+     "noteEn": "Elders need not ride, but it costs every year."
+    },
+    {
+     "cost": 2,
+     "crews": 1,
+     "dur": 10,
+     "en": "Dusk safety campaign for autumn and winter",
+     "fx": {
+      "elder": 2
+     },
+     "label": "秋冬黃昏安全宣導",
+     "note": "天黑得早、溫差大，提醒有用但有限。",
+     "noteEn": "Early dusk and cold snaps raise risk; reminders help a little."
+    }
+   ],
+   "sev": 2,
+   "src": {
+    "t": "經濟日報 2026-09-29",
+    "u": "https://money.udn.com/money/story/7307/9783247"
+   },
+   "title": "長者交通死亡又增加",
+   "ttl": 45,
+   "id": "tc-elder-traffic-20260929"
+  },
+  {
+   "active": true,
+   "city": "tainan",
+   "ctx": "2026 年 7 月颱風巴威逼近，台南市府派人逐段巡檢下水道、加速清疏，希望在風雨來之前把排水路清通。",
+   "ctxEn": "As Typhoon Bavi approached in July 2026, Tainan sent crews to inspect sewers section by section and speed up clearing before the storm.",
+   "date": "2026-07-05",
+   "en": "Typhoon nears: clearing the drains",
+   "hit": {
+    "business": -5,
+    "commuter": -5,
+    "family": -3
+   },
+   "island": "safety",
+   "lesson": "防颱要在颱風來之前做完，平常看不見的清疏，關鍵時刻才顯出價值。",
+   "lessonEn": "Typhoon prep must be done before it arrives; routine drain work only shows its value in a crisis.",
+   "options": [
+    {
+     "cost": 4,
+     "crews": 3,
+     "dur": 12,
+     "en": "All crews clear low-lying drains",
+     "fx": {
+      "business": 4,
+      "commuter": 4,
+      "family": 2
+     },
+     "label": "全員出動清疏低窪區",
+     "note": "效果最好，但其他事情得暫停。",
+     "noteEn": "Most effective, but other work has to wait."
+    },
+    {
+     "cost": 5,
+     "crews": 1,
+     "dur": 8,
+     "en": "Pre-position mobile pumps",
+     "fx": {
+      "business": 3,
+      "commuter": 2
+     },
+     "label": "預先布署移動式抽水機",
+     "note": "淹了能快點退，但擋不住淹水。",
+     "noteEn": "Water recedes faster, but it still floods."
+    },
+    {
+     "cost": 1,
+     "crews": 1,
+     "dur": 6,
+     "en": "Hand out sandbags and ask residents to prepare",
+     "fx": {
+      "elder": -1,
+      "family": 2
+     },
+     "label": "發放沙包、請居民自主防範",
+     "note": "便宜，但長輩搬不動沙包。",
+     "noteEn": "Cheap, but elders cannot lift sandbags."
+    }
+   ],
+   "sev": 2,
+   "src": {
+    "t": "中央社 2026-07-05",
+    "u": "https://cna.com.tw/news/aloc/202607050089.aspx"
+   },
+   "title": "颱風逼近，下水道趕清疏",
+   "ttl": 30,
+   "id": "tn-typhoon-prep-20260705"
+  }
+ ]
+}
