@@ -350,6 +350,39 @@ html[lang="en"] #ghud.great .g-ap .eyebrow::after{content:" · Delighted"}
 .gs-how{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;counter-reset:s}
 .gs-how li{display:flex;gap:10px;font-size:13.5px;line-height:1.55;counter-increment:s}
 .gs-how li::before{content:counter(s);flex:none;width:22px;height:22px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font:700 11px var(--mono)}
+.glogin{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:16px;background:#fff;box-shadow:var(--chip-shadow)}
+.glogin.need{box-shadow:0 0 0 3px var(--coral)}
+.glogin-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.glogin-lbl{font-size:13px;font-weight:700}
+#gname-in{flex:1 1 160px;min-width:0;min-height:44px;border:0;border-radius:10px;padding:0 12px;font:600 16px var(--font);background:var(--cream);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+#gname-in:focus-visible{outline:3px solid var(--coral);outline-offset:1px}
+.glogin-done{margin:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+.glogin-done b{font-size:18px}
+.glogin-err{margin:0;font-size:13px;font-weight:700;color:#c42a1b}
+#gappoint{position:fixed;inset:0;z-index:16;display:flex;overflow:auto;box-sizing:border-box;padding:20px max(14px,env(safe-area-inset-right,0px)) 20px max(14px,env(safe-area-inset-left,0px));background:rgba(40,30,25,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.gap-card{margin:auto;width:min(560px,100%);display:flex;flex-direction:column;gap:14px;animation:gapin .45s ease-out both}
+@keyframes gapin{from{translate:0 16px;scale:.96}to{translate:0 0;scale:1}}
+.gap-frame{position:relative;background:#fffaf0;color:#3a2a20;border-radius:6px;padding:28px 28px 24px;box-shadow:0 18px 50px rgba(0,0,0,.35),inset 0 0 0 6px #fffaf0,inset 0 0 0 8px #b8862f,inset 0 0 0 11px #fffaf0,inset 0 0 0 12px #b8862f;
+  background-image:radial-gradient(120% 80% at 50% 0%,#fffdf6,#f8ecd4)}
+.gap-kicker{margin:0;text-align:center;font:700 11px/1 var(--mono);letter-spacing:3px;color:#9a6c1e}
+#gap-title{margin:10px 0 16px;text-align:center;font-size:clamp(30px,8vw,40px);font-weight:900;letter-spacing:12px;color:#7a1f14}
+html[lang="en"] #gap-title{letter-spacing:2px;font-size:clamp(24px,6vw,32px)}
+.gap-body{margin:0 0 12px;font-size:16px;line-height:1.9;text-align:justify}
+.gap-body b{font-size:20px;color:#7a1f14;border-bottom:2px solid #b8862f;padding:0 4px}
+.gap-terms{margin:0 0 16px;padding-left:20px;font-size:14px;line-height:1.75}
+.gap-sign{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap;position:relative;padding-right:96px;min-height:84px}
+.gap-sign div:not(.gap-seal){display:flex;flex-direction:column;gap:2px;font-size:12px;color:#7a5a40}
+.gap-sign b{font-size:15px;color:#3a2a20}
+.gap-seal{position:absolute;right:0;bottom:-4px;width:84px;height:84px;border-radius:50%;border:3px solid #c4321f;color:#c4321f;display:flex;flex-direction:column;align-items:center;justify-content:center;font:900 17px/1.15 var(--font);rotate:-12deg;opacity:.88;box-shadow:inset 0 0 0 3px #fffaf0,inset 0 0 0 5px #c4321f}
+html[lang="en"] .gap-seal{font-size:10px;letter-spacing:1px}
+.gap-actions{justify-content:center}
+@media (prefers-reduced-motion:reduce){ .gap-card{animation:none} }
+.gres.president{background:linear-gradient(140deg,#fff2c4,#ffd98a 55%,#ffe9b8);box-shadow:inset 0 0 0 2px #c98a12}
+.gres.president .gres-tier{color:#8a5a00}
+.gres.good .gres-tier{color:#2f7d4f}
+.gres.over .gres-tier{color:#c42a1b}
+.gres-mayor{margin:0;font-size:14px;color:#5d5049}
+.gres-mayor b{font-size:17px;color:var(--ink)}
 .gs-acct{margin:0;display:flex;gap:8px;align-items:center;font-size:13px;color:#4a3f39;background:#fff;border-radius:12px;padding:10px 12px;box-shadow:inset 0 0 0 1px var(--line)}
 .gs-inapp{margin:0;font-size:13px;line-height:1.6;color:#8a3517;background:#fde9df;border-radius:12px;padding:10px 12px;box-shadow:inset 0 0 0 1px rgba(196,42,27,.25)}
 .gs-inapp b{display:block;font-size:14px;margin-bottom:2px}
@@ -636,6 +669,12 @@ body.game #log-list li span{overflow-wrap:anywhere}
   .gs-card h1{font-size:28px}
   #coach{width:min(280px,calc(100% - 24px))}
   #coach p{font-size:13.5px}
+  .gap-frame{padding:16px 20px 14px}
+  #gap-title{margin:4px 0 8px;font-size:26px}
+  .gap-body{font-size:15px;line-height:1.7;margin-bottom:6px}
+  .gap-terms{font-size:13px;line-height:1.55;margin-bottom:8px}
+  .gap-sign{min-height:64px}
+  .gap-seal{width:64px;height:64px;font-size:13px}
 }
 </style>
 
@@ -787,8 +826,18 @@ body.game #log-list li span{overflow-wrap:anywhere}
       <li data-en="Below 60 the alarm sounds. At 30 you are out.">喜愛度低於 60 會響警報，降到 30 就下台。</li>
     </ol>
     <p class="gs-inapp" id="ginapp" hidden></p>
+    <section class="glogin" id="glogin" aria-labelledby="glogin-h">
+      <h2 class="eyebrow" id="glogin-h" data-en="Step 1 · Mayor sign-in">第 1 步 · 市長登錄</h2>
+      <form class="glogin-row" id="glogin-form" autocomplete="on">
+        <label class="glogin-lbl" for="gname-in" data-en="Your name">你的名字</label>
+        <input id="gname-in" name="nickname" maxlength="12" autocomplete="nickname" placeholder="輸入你的名字" data-en-ph="Enter your name" required>
+        <button class="btn primary" type="submit" data-en="Sign in">登錄</button>
+      </form>
+      <p class="glogin-done" id="glogin-done" hidden></p>
+      <p class="glogin-err" id="glogin-err" role="alert" hidden data-en="Sign in with your name first, then choose a city.">請先登錄你的名字，再選擇城市。</p>
+    </section>
     <p class="gs-acct" id="gacct"></p>
-    <h2 class="eyebrow" data-en="Choose a city">選擇城市</h2>
+    <h2 class="eyebrow" data-en="Step 2 · Choose a city">第 2 步 · 選擇城市</h2>
     <div class="gs-cities" id="gcities"></div>
     <button class="btn primary" id="gresume" type="button" hidden data-en="Back to the game">回到遊戲</button>
     <h2 class="eyebrow" data-en="My records">我的紀錄</h2>
@@ -799,6 +848,17 @@ body.game #log-list li span{overflow-wrap:anywhere}
   </div>
 </section>
 
+<section id="gappoint" hidden role="dialog" aria-modal="true" aria-labelledby="gap-title" data-en-label="Letter of appointment"><div class="gap-card">
+  <div class="gap-frame">
+    <p class="gap-kicker" data-en="Mayor, Get It Right!">市長，你給我好好做！</p>
+    <h2 id="gap-title" data-en="Letter of Appointment">聘　書</h2>
+    <p class="gap-body" id="gap-body"></p>
+    <ul class="gap-terms" id="gap-terms"></ul>
+    <div class="gap-sign"><div><span data-en="Appointed by">聘任單位</span><b data-en="The residents">全體市民</b></div><div><span data-en="Date">日期</span><b id="gap-date"></b></div>
+      <div class="gap-seal" aria-hidden="true"><span data-en="TRUSTED BY">市民</span><span data-en="RESIDENTS">委託</span></div></div>
+  </div>
+  <div class="me-actions gap-actions"><button class="btn primary" id="gap-ok" type="button" data-en="Accept and take office">接受聘書，正式上任</button><button class="btn" id="gap-back" type="button" data-en="Choose another city">換一座城市</button></div>
+</div></section>
 <section id="gend" hidden role="dialog" aria-label="結算" data-en-label="Results"><div class="gs-card" id="gend-body"></div></section>
 
 <div id="legend" hidden aria-label="協作線圖例" data-en-label="Link legend"><span><i class="lv lv-official"></i><b data-en="Official">正式政策</b></span><span><i class="lv lv-thematic"></i><b data-en="Thematic">主題串聯</b></span><span><i class="lv lv-pending"></i><b data-en="Under review">評估中</b></span></div>
@@ -969,7 +1029,7 @@ const DATA = {
   ],
   /* ---------- 市長任務：遊戲資料（議題取自公開報導；通用情境另行標示） ---------- */
   game: {
-    months:48, secPerMonth:10, decay:.5, drain:.006, credit:.4, minGain:.8, fxScale:.65, incomeScale:.75, ignoreScale:.85, streakBonus:.12, gameOver:30, alarm:60, alarmEvery:[120,180],
+    months:48, secPerMonth:10, decay:.5, drain:.009, credit:.3, minGain:.4, fxScale:.65, incomeScale:.75, ignoreScale:.85, streakBonus:.12, minPlus:4, decayHi:.03, gameOver:30, alarm:60, alarmEvery:[120,180],
     groups:[ { id:'youth', name:'青年', en:'Youth' }, { id:'family', name:'家長', en:'Parents' }, { id:'elder', name:'長者', en:'Elders' },
              { id:'commuter', name:'通勤族', en:'Commuters' }, { id:'business', name:'商家', en:'Businesses' } ],
     cities:{
@@ -3360,8 +3420,10 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
   const approval=()=>GROUPS.reduce((a,g)=>a+GM.groups[g.id],0)/GROUPS.length;
   const fmtT=s=>{ s=Math.max(0,Math.ceil(s)); return Math.floor(s/60)+':'+pad2(s%60); };
   const dateLabel=m=>EN?`Year ${Math.floor(m/12)+1}, month ${m%12+1}`:`第 ${Math.floor(m/12)+1} 年 ${m%12+1} 月`;
-  function applyFx(fx,mult=1){ if(!fx) return; for(const k in fx){ if(GM.groups[k]==null) continue; let v=fx[k]*mult; if(v>0) v*=G.fxScale; GM.groups[k]=clamp(GM.groups[k]+v,0,100); } }
-  const fxChips=fx=>Object.keys(fx||{}).map(k=>{ const g=GROUPS.find(x=>x.id===k); if(!g) return ''; const v=fx[k];
+  // 處理成功的加分：每個族群最少 +minPlus（卡片上顯示的就是實際加的分數）
+  const plusV=v=>Math.max(G.minPlus,Math.round(v*G.fxScale));
+  function applyFx(fx,mult=1,main=false){ if(!fx) return; for(const k in fx){ if(GM.groups[k]==null) continue; let v=fx[k]*mult; if(v>0) v=main?plusV(v):v*G.fxScale; GM.groups[k]=clamp(GM.groups[k]+v,0,100); } }
+  const fxChips=(fx,main=false)=>Object.keys(fx||{}).map(k=>{ const g=GROUPS.find(x=>x.id===k); if(!g) return ''; const v=main&&fx[k]>0?plusV(fx[k]):fx[k];
     return `<span class="fx ${v>0?'up':'down'}">${esc(gname(g))} ${v>0?'+':''}${v}</span>`; }).join('');
 
   // 喜愛度變化提示：儀表板數字旁 + 島上飄字
@@ -3435,7 +3497,7 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
     const opts=d.options.map((o,i)=>{
       const lack=o.cost>GM.budget?tr('預算不足','Not enough budget'):(o.crews>GM.crews?tr('團隊不足','No free teams'):'');
       return `<button class="gopt" type="button" data-opt="${i}"${lack||a.state!=='open'?' disabled':''}>
-        <b>${esc(oLabel(o))}</b><span class="gfx">${fxChips(o.fx)}</span><span class="gnote">${esc(tx(o,'note'))}</span>
+        <b>${esc(oLabel(o))}</b><span class="gfx">${fxChips(o.fx,true)}</span><span class="gnote">${esc(tx(o,'note'))}</span>
         <span class="gmeta"><span>${tr('預算','Budget')} ${o.cost} ${tr('億','B')}</span><span>${tr('團隊','Teams')} ${o.crews}</span><span>${o.dur} ${tr('秒','s')}</span>${o.chance?`<span>${tr('成功率','Success')} ${Math.round(o.chance*100)}%</span>`:''}${o.budget?`<span>${tr('預算','Budget')} ${o.budget>0?'+':''}${o.budget}</span>`:''}</span>
         ${lack?`<span class="glack">${lack}</span>`:''}</button>`; }).join('');
     const work=a.state==='work'?`<div class="gwork"><span class="eyebrow">${tr('處理中','In progress')}</span><b>${esc(oLabel(a.opt))}</b><i class="gbar"><u id="gwork-bar"></u></i></div>`:'';
@@ -3502,7 +3564,7 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
     const dt=rdt*GM.speed*timeFlow(); if(!GM.tut) GM.t+=dt;   // 教學中時間不前進
     // 月份、收入、期待落差
     const m=Math.floor(GM.t/G.secPerMonth);
-    while(GM.month<m){ GM.month++; GM.budget+=GM.city.income*G.incomeScale; for(const g of GROUPS) GM.groups[g.id]=clamp(GM.groups[g.id]-G.decay,0,100);
+    while(GM.month<m){ GM.month++; GM.budget+=GM.city.income*G.incomeScale; for(const g of GROUPS){ const v=GM.groups[g.id]; GM.groups[g.id]=clamp(v-G.decay-Math.max(0,v-60)*G.decayHi,0,100); }   // 越滿意，市民期待越高
       if(GM.month>=G.months) return endGame('complete'), true; }
     // 生成
     GM.next-=dt;
@@ -3538,7 +3600,7 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
     const isTut=GM.tut && a.uid===GM.tut.uid, o=a.opt, ok=isTut?true:(o.chance?Math.random()<o.chance:true);
     GM.crews=Math.min(GM.crewsMax,GM.crews+o.crews); setWorking(a.isl,false);
     const b0=approval();
-    if(ok){ applyFx(o.fx); if(o.budget) GM.budget=Math.max(0,GM.budget+o.budget); GM.resolved++;
+    if(ok){ applyFx(o.fx,1,true); if(o.budget) GM.budget=Math.max(0,GM.budget+o.budget); GM.resolved++;
       if(!o.respawn) for(const g of GROUPS) GM.groups[g.id]=clamp(GM.groups[g.id]+G.credit,0,100);   // 治標的選項不給公信力，避免反覆洗分           // 市府有作為的公信力
       const gain=approval()-b0; if(!o.respawn && gain<G.minGain) for(const g of GROUPS) GM.groups[g.id]=clamp(GM.groups[g.id]+(G.minGain-gain),0,100);
       onSuccess(a); showDelta(approval()-b0,a.isl);
@@ -3881,10 +3943,10 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
   }
   function keyDecisions(){ const seen=new Set(); return [...GM.decisions].sort((a,b)=>(b.opt.cost+b.def.sev*6)-(a.opt.cost+a.def.sev*6)).filter(d=>!seen.has(d.def.id)&&seen.add(d.def.id)).slice(0,3); }
   function lessonsLearned(){ const seen=new Map(); [...GM.decisions.map(d=>d.def), ...GM.failedList].forEach(d=>{ if(!seen.has(d.id) && tx(d,'lesson')) seen.set(d.id,d); }); return [...seen.values()].slice(0,3); }
-  function shareText(kind,ap,styleKey){
-    const st=STYLES[styleKey], city=EN?GM.city.en:GM.city.name;
-    return EN?`I played “Mayor, Get It Right!” as mayor of ${city}: ${kind==='over'?'ousted':'finished the term'} with approval ${ap}. My style: ${st[1]}.`
-      :`我在《市長，你給我好好做！》當了${city}市長：${kind==='over'?'中途下台':'做滿四年'}，喜愛度 ${ap}，我是「${st[0]}」。你也來試試看你是哪一型市長！`;
+  function shareText(kind,ap,styleKey,tier){
+    const st=STYLES[styleKey], city=EN?GM.city.en:GM.city.name, who=GM.mayor||'';
+    return EN?`${who?who+' ':'I '}played “Mayor, Get It Right!” as mayor of ${city}: ${tier} (approval ${ap}). Mayor type: ${st[1]}.`
+      :`${who?who+' ':'我'}在《市長，你給我好好做！》當了${city}市長：「${tier}」，喜愛度 ${ap}，是「${st[0]}」。你也來試試看你是哪一型市長！`;
   }
   async function copyShare(btn,text){
     try{ await navigator.clipboard.writeText(text); btn.textContent=tr('已複製！','Copied!'); }
@@ -3913,7 +3975,7 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
     return `<div class="c-eyebrow"><button class="crumb" type="button" data-island="${h.isl}">${pad2(h.isl+1)} ${esc(islLabel(h.isl))}</button><span class="rstat ${h.result}">${tr(...r)}</span>${d.news?`<span class="newsb">${tr('新聞事件','News')}${d.date?' · '+esc(d.date):''}</span>`:''}</div>
       <h2 class="c-title">${esc((h.repeat?tr('又來了：','Again: '):'')+iTitle(d))}</h2>
       <p class="c-sum">${esc(tx(d,'ctx'))}</p>${srcHtml}
-      <section class="c-sec"><h3 class="eyebrow">${tr('你的決定','Your decision')}</h3><p class="c-sum">${h.opt?esc(oLabel(h.opt))+'<br><small class="gnote">'+esc(tx(h.opt,'note'))+'</small>':tr('沒有做出決定。','No decision was made.')}</p>${h.opt?`<div class="gfx">${fxChips(h.result==='ok'?h.opt.fx:(h.opt.failFx||{}))}</div>`:`<div class="gfx">${fxChips(d.hit)}</div>`}</section>
+      <section class="c-sec"><h3 class="eyebrow">${tr('你的決定','Your decision')}</h3><p class="c-sum">${h.opt?esc(oLabel(h.opt))+'<br><small class="gnote">'+esc(tx(h.opt,'note'))+'</small>':tr('沒有做出決定。','No decision was made.')}</p>${h.opt?`<div class="gfx">${(h.result==='ok'?fxChips(h.opt.fx,true):fxChips(h.opt.failFx||{}))}</div>`:`<div class="gfx">${fxChips(d.hit)}</div>`}</section>
       <section class="c-sec"><h3 class="eyebrow">${tr('現實中為什麼難','Why it is hard in real life')}</h3><p class="c-sum">${esc(tx(d,'lesson'))}</p></section>`;
   }
   function openFromLog(li){
@@ -3954,14 +4016,18 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
   function endGame(kind){
     if(GM.ended) return; GM.ended=true; GM.speed=0; GM.tut=null; coach.hidden=true; musicStop(); clearVoice(); clearFireworks(); clearTextFireworks(); music.happyWant=false; ghud.classList.remove('great'); $('galarm').hidden=true; document.body.classList.remove('g-alarm'); wasAlarm=false;
     const ap=Math.round(approval()), score=Math.max(0,Math.round(ap*10+GM.resolved*40-GM.failed*25+(kind==='complete'?300:0)));
-    if(kind==='over'){ beep(400,.3,.08); setTimeout(()=>beep(300,.35,.08),300); setTimeout(()=>beep(200,.6,.08),650); } else { beep(660,.15,.06); setTimeout(()=>beep(880,.15,.06),180); setTimeout(()=>beep(1100,.3,.06),360); }
-    const tier=kind==='over'?tr('市政陷入危機','City hall in crisis'):ap>=70?tr('高人氣市長','A beloved mayor'):ap>=55?tr('穩健的一任','A steady term'):ap>=40?tr('艱難的一任','A hard term'):tr('勉強撐完','Barely made it');
+    const [tierKey,tzh,ten]=tierOf(kind,ap), tier=tr(tzh,ten);
+    if(tierKey==='over'){ beep(400,.3,.08); setTimeout(()=>beep(300,.35,.08),300); setTimeout(()=>beep(200,.6,.08),650); setTimeout(booSound,900); }
+    else if(tierKey==='president') fanfare();
+    else { beep(660,.15,.06); setTimeout(()=>beep(880,.15,.06),180); setTimeout(()=>beep(1100,.3,.06),360); }
     const worst=[...new Map(GM.failedList.map(d=>[d.id,d])).values()].slice(0,3);
     const rec={ city:GM.cityId, result:kind, approval:ap, months:Math.min(GM.month,G.months), resolved:GM.resolved, failed:GM.failed, score, endedAt:Date.now(), v:1 };
-    const styleKey=mayorStyle(), st=STYLES[styleKey], keys=keyDecisions(), lessons=lessonsLearned(), share=shareText(kind,ap,styleKey);
+    const styleKey=mayorStyle(), st=STYLES[styleKey], keys=keyDecisions(), lessons=lessonsLearned(), share=shareText(kind,ap,styleKey,tier);
     rec.style=styleKey;
-    $('gend-body').innerHTML=`<div class="gres ${kind}">
+    rec.tier=tierKey; rec.mayor=GM.mayor;
+    $('gend-body').innerHTML=`<div class="gres ${tierKey}">
         <span class="eyebrow">${kind==='over'?'GAME OVER':tr('任期結束','Term complete')} · ${esc(EN?GM.city.en:GM.city.name)}</span>
+        <p class="gres-mayor">${tr('市長','Mayor')} <b>${esc(GM.mayor||tr('（未登錄）','(unnamed)'))}</b></p>
         <p class="gres-tier">${esc(tier)}</p>
         <div class="gres-stamp"><small>${tr('你的市長類型','Your mayor type')}</small><b>${esc(EN?st[1]:st[0])}</b><span>${esc(EN?st[3]:st[2])}</span></div>
         <div class="nums"><div class="num"><b>${ap}</b><span>${tr('最終喜愛度','Final approval')}</span></div><div class="num"><b>${rec.months}</b><span>${tr('任職月數','Months served')}</span></div><div class="num"><b>${GM.resolved}</b><span>${tr('處理成功','Resolved')}</span></div><div class="num"><b>${score}</b><span>${tr('分數','Score')}</span></div></div>
@@ -4002,7 +4068,7 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
     try{
       const cu=window.claude&&window.claude.use?window.claude.use.bind(window.claude):null; if(!cu) return renderAccount();
       const [user,db]=await Promise.all([cu('user'),cu('db')]);
-      if(user){ GM.uid=await user.id(); try{ GM.userName=(await user.me()).name||''; }catch(err){} }
+      if(user){ GM.uid=await user.id(); try{ GM.userName=(await user.me()).name||''; }catch(err){} if(!GM.mayor) renderLogin(); }
       if(db && GM.uid) GM.db=db;
     }catch(err){ GM.db=null; }
     renderAccount(); loadRuns();
@@ -4046,10 +4112,55 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
   }
   renderCityCards();
   startEl.addEventListener('click',e=>{
-    const c=e.target.closest('[data-city]'); if(c) return startGame(c.dataset.city);
+    const c=e.target.closest('[data-city]'); if(c) return requestCity(c.dataset.city);
     if(e.target.closest('#gresume')){ startEl.hidden=true; GM.speed=1; updateHud(true); return; }
     if(e.target.closest('#gexplore')){ if(GM.on) quitGame(); startEl.hidden=true; maybeFirstHelp(); }
   });
+  /* ---------- 市長登錄 + 聘書 ---------- */
+  GM.mayor=(store.get('pi-mayor')||'').slice(0,12);
+  const loginEl=$('glogin'), nameIn=$('gname-in'), loginErr=$('glogin-err');
+  nameIn.placeholder=tr('輸入你的名字','Enter your name');
+  function renderLogin(){
+    const on=!!GM.mayor; $('glogin-form').hidden=on; const d=$('glogin-done'); d.hidden=!on;
+    if(on) d.innerHTML=`<span>${tr('已登錄','Signed in as')}</span><b>${esc(tr('市長 ','Mayor '))}${esc(GM.mayor)}</b><button class="linkbtn" type="button" id="glogin-change">${tr('更換','Change')}</button>`;
+    else if(!nameIn.value && GM.userName) nameIn.value=GM.userName.slice(0,12);
+  }
+  $('glogin-form').addEventListener('submit',e=>{ e.preventDefault(); const v=nameIn.value.replace(/\s+/g,' ').trim().slice(0,12);
+    if(!v){ nameIn.focus(); return; } GM.mayor=v; store.set('pi-mayor',v); loginErr.hidden=true; loginEl.classList.remove('need'); renderLogin(); ensureAudio(); beep(880,.08,.04);
+    $('gcities').querySelector('.gcity')?.focus({ preventScroll:true }); scrollStartTo($('glogin')); });
+  loginEl.addEventListener('click',e=>{ if(e.target.closest('#glogin-change')){ nameIn.value=GM.mayor; GM.mayor=''; renderLogin(); nameIn.focus(); nameIn.select(); } });
+  renderLogin();
+  // 只捲動開始畫面本身，不要捲動整頁（整頁捲動會讓 3D 畫面跑位）
+  function scrollStartTo(el){ const y=el.getBoundingClientRect().top-startEl.getBoundingClientRect().top+startEl.scrollTop-16; startEl.scrollTo({ top:Math.max(0,y), behavior:RM?'auto':'smooth' }); }
+  const apEl=$('gappoint'); let apCity=null;
+  const rocDate=d=>EN?d.toLocaleDateString('en-GB',{ day:'numeric', month:'long', year:'numeric' }):`中華民國 ${d.getFullYear()-1911} 年 ${d.getMonth()+1} 月 ${d.getDate()} 日`;
+  function requestCity(id){
+    if(!GM.mayor){ loginErr.hidden=false; loginEl.classList.add('need'); scrollStartTo(loginEl); nameIn.focus({ preventScroll:true }); return; }
+    apCity=id; const c=G.cities[id], cn=EN?c.en:c.name;
+    $('gap-body').innerHTML=EN?`We hereby appoint <b>${esc(GM.mayor)}</b> as Mayor of <b>${esc(cn)}</b> for a four-year term, effective today.`
+      :`茲聘請 <b>${esc(GM.mayor)}</b> 為 <b>${esc(cn)}</b> 市長，任期四年，自即日起生效。`;
+    $('gap-terms').innerHTML=[tr('善用預算與團隊，處理島上冒出的市政問題。','Use your budget and teams to handle the problems that pop up on the islands.'),
+      tr('喜愛度低於 60 會響警報，降到 30 會被人民噓下台。','Below 60 the alarm sounds; at 30 the residents boo you out of office.'),
+      tr('任滿時喜愛度 80 以上，就能朝選總統邁進。','Finish with approval of 80 or more and you are on the road to the presidency.')].map(t=>`<li>${esc(t)}</li>`).join('');
+    $('gap-date').textContent=rocDate(new Date());
+    apEl.hidden=false; apEl.scrollTop=0; ensureAudio(); $('gap-ok').focus({ preventScroll:true });
+    if(actx && !GM.muted){ const t=actx.currentTime+.05; [0,4,7].forEach((k,i)=>note('triangle',mtof(72+k),t+i*.12,.08,.5,actx.destination)); }
+  }
+  $('gap-ok').addEventListener('click',()=>{ apEl.hidden=true; if(apCity) startGame(apCity); });
+  $('gap-back').addEventListener('click',()=>{ apEl.hidden=true; $('gcities').querySelector(`[data-city="${apCity}"]`)?.focus(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape' && !apEl.hidden){ apEl.hidden=true; } });
+  // 結算等級
+  function tierOf(kind,ap){
+    if(kind==='over' || ap<=30) return ['over','被人民噓下台','Booed out of office'];
+    if(ap>=80) return ['president','朝選總統邁進！','On the road to the presidency!'];
+    if(ap>=70) return ['good','表現很好','A great term'];
+    return ['ok','表現一般','An average term'];
+  }
+  function booSound(){ if(!actx||GM.muted) return; const t=actx.currentTime+.05, lp=actx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=700; lp.connect(actx.destination);
+    for(let i=0;i<7;i++){ const o=actx.createOscillator(), g=actx.createGain(), t0=t+i*.07, f=130+Math.random()*90; o.type='sawtooth';
+      o.frequency.setValueAtTime(f,t0); o.frequency.exponentialRampToValueAtTime(f*.62,t0+1.3);
+      g.gain.setValueAtTime(0,t0); g.gain.linearRampToValueAtTime(.05,t0+.15); g.gain.exponentialRampToValueAtTime(.0001,t0+1.4); o.connect(g).connect(lp); o.start(t0); o.stop(t0+1.45); } }
+  function fanfare(){ if(!actx||GM.muted) return; const t=actx.currentTime+.05; [[0,.14],[4,.14],[7,.14],[12,.5],[7,.14],[12,.8]].reduce((tt,[k,d])=>{ note('triangle',mtof(72+k),tt,.12,d+.2,actx.destination); note('square',mtof(60+k),tt,.03,d+.1,actx.destination); return tt+d; },t); }
   /* ---------- 新聞事件：從共用資料庫讀取（由 Claude 依最新新聞寫入） ---------- */
   const okStr=(v,n=600)=>typeof v==='string'&&v.length>0&&v.length<=n;
   const okFx=o=>o&&typeof o==='object'?Object.fromEntries(Object.entries(o).filter(([k,v])=>GROUPS.some(g=>g.id===k)&&Number.isFinite(v)).map(([k,v])=>[k,clamp(v,-12,12)])):{};
