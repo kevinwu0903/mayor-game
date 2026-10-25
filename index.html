@@ -358,6 +358,28 @@ html[lang="en"] #ghud.great .g-ap .eyebrow::after{content:" · Delighted"}
 #gname-in:focus-visible{outline:3px solid var(--coral);outline-offset:1px}
 .glogin-done{margin:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
 .glogin-done b{font-size:18px}
+.gcloud{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:10px}
+.gcloud-lead{margin:0;font-size:13px;color:#5d5049;line-height:1.55}
+.gcloud-btns{display:flex;gap:8px;flex-wrap:wrap}
+.gbtn-google{background:#fff;box-shadow:inset 0 0 0 1px #dadce0,var(--chip-shadow)}
+#gc-email{flex:1 1 200px;min-width:0;min-height:44px;border:0;border-radius:10px;padding:0 12px;font:600 16px var(--font);background:var(--cream);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+#gc-email:focus-visible{outline:3px solid var(--coral);outline-offset:1px}
+.gcloud-msg{margin:0;font-size:13px;font-weight:600;color:#2f7d4f;line-height:1.5}
+.gcloud-msg.err{color:#c42a1b}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.gboard{display:flex;flex-direction:column;gap:8px}
+.gb-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+#gb-city{min-height:36px;border:0;border-radius:9px;padding:0 10px;font:600 13px var(--font);background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+.gb-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;counter-reset:r}
+.gb-list li{display:grid;grid-template-columns:28px minmax(0,1fr) auto auto;gap:10px;align-items:center;font-size:13px;padding:7px 10px;border-radius:10px;background:#fff;counter-increment:r;font-variant-numeric:tabular-nums}
+.gb-list li::before{content:counter(r);font:700 13px var(--mono);color:#7a6a5e;text-align:center}
+.gb-list li:nth-child(1)::before{color:#c98a12}.gb-list li:nth-child(2)::before{color:#8a8f98}.gb-list li:nth-child(3)::before{color:#a8673a}
+.gb-list li.me{box-shadow:inset 0 0 0 2px var(--coral)}
+.gb-list .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.gb-list .nm small{font-weight:500;color:#7a6a5e;margin-left:6px}
+.gb-list b{font:italic 700 16px var(--num)}
+.gb-tier{font:700 10.5px var(--font);padding:3px 7px;border-radius:999px;white-space:nowrap}
+.gb-tier.president{background:#ffe7a8;color:#8a5a00}.gb-tier.good{background:#d5ebd9;color:#245b34}.gb-tier.ok{background:#eee6dc;color:#5d5049}.gb-tier.over{background:#f7d3c4;color:#8a3517}
 .glogin-err{margin:0;font-size:13px;font-weight:700;color:#c42a1b}
 #gappoint{position:fixed;inset:0;z-index:16;display:flex;overflow:auto;box-sizing:border-box;padding:20px max(14px,env(safe-area-inset-right,0px)) 20px max(14px,env(safe-area-inset-left,0px));background:rgba(40,30,25,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
 .gap-card{margin:auto;width:min(560px,100%);display:flex;flex-direction:column;gap:14px;animation:gapin .45s ease-out both}
@@ -834,6 +856,19 @@ body.game #log-list li span{overflow-wrap:anywhere}
         <button class="btn primary" type="submit" data-en="Sign in">登錄</button>
       </form>
       <p class="glogin-done" id="glogin-done" hidden></p>
+      <div class="gcloud" id="gcloud" hidden>
+        <p class="gcloud-lead" id="gcloud-lead"></p>
+        <div class="gcloud-btns" id="gcloud-btns">
+          <button class="btn gbtn-google" type="button" id="gc-google"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.9 3.6-4.9 6.7-4.9z"/></svg><span data-en="Sign in with Google">用 Google 登入</span></button>
+          <button class="btn" type="button" id="gc-email-open" data-en="Sign in with email">用 Email 登入</button>
+        </div>
+        <form class="glogin-row" id="gc-email-form" hidden>
+          <label class="glogin-lbl" for="gc-email" data-en="Email">Email</label>
+          <input id="gc-email" type="email" autocomplete="email" maxlength="120" required>
+          <button class="btn primary" type="submit" data-en="Send sign-in link">寄登入連結</button>
+        </form>
+        <p class="gcloud-msg" id="gcloud-msg" role="status" hidden></p>
+      </div>
       <p class="glogin-err" id="glogin-err" role="alert" hidden data-en="Sign in with your name first, then choose a city.">請先登錄你的名字，再選擇城市。</p>
     </section>
     <p class="gs-acct" id="gacct"></p>
@@ -842,6 +877,12 @@ body.game #log-list li span{overflow-wrap:anywhere}
     <button class="btn primary" id="gresume" type="button" hidden data-en="Back to the game">回到遊戲</button>
     <h2 class="eyebrow" data-en="My records">我的紀錄</h2>
     <div class="gs-runs" id="gruns"></div>
+    <section class="gboard" id="gboard" hidden aria-labelledby="gb-h">
+      <div class="gb-head"><h2 class="eyebrow" id="gb-h" data-en="Leaderboard · last 7 days">排行榜 · 近 7 天</h2>
+        <label class="gb-sel"><span class="sr-only" data-en="City">城市</span><select id="gb-city"></select></label></div>
+      <ol class="gb-list" id="gb-list"></ol>
+      <p class="gs-note" id="gb-note"></p>
+    </section>
     <p class="gs-note" data-en="City issues come from public news reports, each with a source. Options are simplified to show the real trade-offs, not to endorse any party or politician.">議題取自公開新聞報導，每題都附上來源；選項是為了呈現真實的取捨而簡化，不代表支持任何政黨或人物。</p>
     <button class="linkbtn" id="gabout-open" type="button" data-en="How are issues chosen? →">議題怎麼選？ →</button>
     <button class="btn" id="gexplore" type="button" data-en="Explore Demo City instead">改為自由參觀示範市</button>
@@ -4059,14 +4100,15 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
   const LOCAL_RUNS='pi-runs';
   function localRuns(){ try{ return JSON.parse(store.get(LOCAL_RUNS)||'[]'); }catch(err){ return []; } }
   // LINE / Facebook / Instagram 等 App 內建瀏覽器：Google 會擋下登入，常見症狀是登入後整頁變白
-  (()=>{ const ua=navigator.userAgent||'', app=/\bLine\//i.test(ua)?'LINE':/FBAN|FBAV|FB_IAB/i.test(ua)?'Facebook':/Instagram/i.test(ua)?'Instagram':/MicroMessenger/i.test(ua)?'WeChat':/ Threads/i.test(ua)?'Threads':'';
+  const IN_APP=(()=>{ const ua=navigator.userAgent||''; return /\bLine\//i.test(ua)?'LINE':/FBAN|FBAV|FB_IAB/i.test(ua)?'Facebook':/Instagram/i.test(ua)?'Instagram':/MicroMessenger/i.test(ua)?'WeChat':/ Threads/i.test(ua)?'Threads':''; })();
+  (()=>{ const app=IN_APP;
     if(!app || !window.claude) return; const el=$('ginapp'); el.hidden=false;
     el.innerHTML=EN?`<b>You're in ${app}'s built-in browser</b>Google sign-in is blocked here and the page may turn white. Tap ⋯ (top right) → “Open in browser”, then sign in from Safari or Chrome.`
       :`<b>你正在 ${app} 的內建瀏覽器</b>這裡的 Google 登入會被擋下，登入後畫面可能整個變白。請點右上角「⋯」→「用預設瀏覽器開啟」，改用 Safari 或 Chrome 登入。`; })();
   async function initAccount(){
     renderAccount();
     try{
-      const cu=window.claude&&window.claude.use?window.claude.use.bind(window.claude):null; if(!cu) return renderAccount();
+      const cu=window.claude&&window.claude.use?window.claude.use.bind(window.claude):null; if(!cu){ renderAccount(); loadRuns(); return initCloud(); }
       const [user,db]=await Promise.all([cu('user'),cu('db')]);
       if(user){ GM.uid=await user.id(); try{ GM.userName=(await user.me()).name||''; }catch(err){} if(!GM.mayor) renderLogin(); }
       if(db && GM.uid) GM.db=db;
@@ -4075,18 +4117,22 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
   }
   function renderAccount(){
     const el=$('gacct');
+    if(GM.sbUser){ el.innerHTML=`<i class="dot ok"></i>${tr('已登入','Signed in')}：${esc(GM.sbUser.email||'')}，${tr('紀錄會存到你的帳號、成績會上排行榜。','records sync to your account and count on the leaderboard.')} <button class="linkbtn" type="button" id="gc-logout">${tr('登出','Sign out')}</button>`; return; }
     if(GM.db) el.innerHTML=`<i class="dot ok"></i>${EN?`Signed in${GM.userName?' as '+esc(GM.userName):''}. Records sync to your account.`:`已登入${GM.userName?'：'+esc(GM.userName):''}，紀錄會存到你的帳號。`}`;
-    else if(!window.claude) el.innerHTML=`<i class="dot"></i>${tr('紀錄會存在這台裝置的瀏覽器，換手機或清除瀏覽資料就會不見。','Records are kept in this browser; they will not follow you to another device.')}`;
+    else if(!window.claude) el.innerHTML=`<i class="dot"></i>${GM.sb?tr('還沒用帳號登入：紀錄只存在這台裝置，成績也不會上排行榜。','Not signed in: records stay on this device and do not count on the leaderboard.'):tr('紀錄會存在這台裝置的瀏覽器，換手機或清除瀏覽資料就會不見。','Records are kept in this browser; they will not follow you to another device.')}`;
     else el.innerHTML=`<i class="dot"></i>${tr('未登入：紀錄只會存在這台裝置的瀏覽器。登入 Claude 後開啟就能跨裝置保存。','Not signed in: records stay in this browser. Open it signed in to Claude to keep them across devices.')}`;
   }
   async function saveRun(rec){
+    if(GM.sb && GM.sbUser){ try{ const { error }=await GM.sb.from('runs').insert(toRow(rec)); if(error) throw error; loadRuns(); loadBoard(); return tr('紀錄已存到你的帳號，成績已送上排行榜。','Saved to your account and sent to the leaderboard.'); }catch(err){ console.warn('雲端存檔失敗',err); } }
     if(GM.db && GM.uid){ try{ await GM.db.collection('data/users/'+GM.uid).doc('run-'+rec.endedAt).set(rec); loadRuns(); return tr('紀錄已存到你的帳號。','Saved to your account.'); }catch(err){ console.warn('雲端存檔失敗',err); } }
     const list=localRuns(); list.unshift(rec); store.set(LOCAL_RUNS,JSON.stringify(list.slice(0,30))); loadRuns();
     return tr('紀錄已存在這台裝置。','Saved on this device.');
   }
   async function loadRuns(){
     let runs=[];
-    if(GM.db && GM.uid){ try{ const q=await GM.db.collection('data/users/'+GM.uid).orderBy('endedAt','desc').limit(12).get(); runs=q.docs.map(d=>d.data()).filter(r=>r&&r.v===1); }catch(err){ console.warn('讀取紀錄失敗',err); } }
+    if(GM.sb && GM.sbUser){ try{ const { data, error }=await GM.sb.from('runs').select('city,result,tier,approval,score,months,resolved,failed,created_at').order('created_at',{ ascending:false }).limit(12); if(error) throw error;
+      runs=data.map(r=>({ city:r.city, result:r.result, tier:r.tier, approval:r.approval, score:r.score, months:r.months, endedAt:Date.parse(r.created_at) })); }catch(err){ console.warn('讀取紀錄失敗',err); runs=localRuns().slice(0,12); } }
+    else if(GM.db && GM.uid){ try{ const q=await GM.db.collection('data/users/'+GM.uid).orderBy('endedAt','desc').limit(12).get(); runs=q.docs.map(d=>d.data()).filter(r=>r&&r.v===1); }catch(err){ console.warn('讀取紀錄失敗',err); } }
     else runs=localRuns().slice(0,12);
     GM.history=runs; renderRuns();
   }
@@ -4116,17 +4162,86 @@ function main({ THREE, OrbitControls, CSS2DRenderer, CSS2DObject, RoundedBoxGeom
     if(e.target.closest('#gresume')){ startEl.hidden=true; GM.speed=1; updateHud(true); return; }
     if(e.target.closest('#gexplore')){ if(GM.on) quitGame(); startEl.hidden=true; maybeFirstHelp(); }
   });
+  /* ---------- 外部網站的雲端帳號（Supabase）：登入、雲端紀錄、排行榜 ---------- */
+  const SB={ url:'https://plujpffyedfcdiebcznk.supabase.co', key:'sb_publishable_PUSm1hdBv0srkg1s0Vz8DA_hsJ_ZGN4', lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/+esm' };
+  GM.sb=null; GM.sbUser=null;
+  const cloudMsg=(t,err)=>{ const m=$('gcloud-msg'); m.hidden=!t; m.textContent=t||''; m.classList.toggle('err',!!err); };
+  const backTo=()=>location.origin+location.pathname;
+  const toRow=r=>({ mayor_name:(r.mayor||GM.mayor||'市長').slice(0,12), city:r.city, result:r.result, tier:r.tier, style:r.style||null, approval:r.approval, months:r.months, resolved:r.resolved, failed:r.failed, score:r.score, client_ended_at:r.endedAt });
+  async function initCloud(){
+    if(window.claude || !SB.key) return;
+    try{
+      const { createClient }=await import(SB.lib);
+      GM.sb=createClient(SB.url,SB.key,{ auth:{ flowType:'pkce', detectSessionInUrl:true, persistSession:true, autoRefreshToken:true } });
+      GM.sb.auth.onAuthStateChange((ev,session)=>{ setTimeout(()=>onCloudUser(session?.user||null),0); });
+      const { data }=await GM.sb.auth.getSession(); await onCloudUser(data.session?.user||null);
+      if(/[?&](code|error)=/.test(location.search)){ const q=new URLSearchParams(location.search); if(q.get('error')) cloudMsg(tr('登入沒有完成：','Sign-in did not finish: ')+(q.get('error_description')||q.get('error')),true); history.replaceState(null,'',backTo()+location.hash); }
+    }catch(err){ console.warn('雲端帳號功能無法載入',err); GM.sb=null; }
+    renderLogin(); renderAccount(); loadBoard();
+  }
+  async function onCloudUser(u){
+    const same=(GM.sbUser&&u&&GM.sbUser.id===u.id)||(!GM.sbUser&&!u); GM.sbUser=u;
+    if(u && !same){
+      try{
+        const { data:prof }=await GM.sb.from('profiles').select('mayor_name').eq('id',u.id).maybeSingle();
+        if(prof && prof.mayor_name){ GM.mayor=prof.mayor_name; store.set('pi-mayor',GM.mayor); }
+        else { const nm=(GM.mayor||u.user_metadata?.full_name||u.user_metadata?.name||(u.email||'').split('@')[0]||'').slice(0,12); if(nm){ GM.mayor=nm; store.set('pi-mayor',nm); await GM.sb.from('profiles').upsert({ id:u.id, mayor_name:nm }); } }
+        await migrateLocal(u);
+      }catch(err){ console.warn('讀取市長資料失敗',err); }
+      cloudMsg('');
+    }
+    renderLogin(); renderAccount(); loadRuns(); loadBoard();
+  }
+  // 第一次登入：把這台裝置上最好的一筆紀錄搬上去（後端限制同一帳號 20 秒才能送一筆，所以只搬一筆）
+  async function migrateLocal(u){
+    const flag='pi-migrated-'+u.id; if(store.get(flag)==='1') return; store.set(flag,'1');
+    const best=localRuns().filter(r=>r&&r.v===1&&r.tier).sort((a,b)=>b.score-a.score)[0]; if(!best) return;
+    try{ const { error }=await GM.sb.from('runs').insert(toRow(best)); if(!error) cloudMsg(tr('已把這台裝置上的最佳紀錄搬到你的帳號。','Moved your best record from this device to your account.')); }catch(err){}
+  }
+  async function saveProfileName(){ if(!GM.sb||!GM.sbUser) return; try{ await GM.sb.from('profiles').upsert({ id:GM.sbUser.id, mayor_name:GM.mayor, updated_at:new Date().toISOString() }); }catch(err){ console.warn(err); } }
+  $('gc-google').addEventListener('click',async()=>{
+    if(!GM.sb) return;
+    if(IN_APP){ cloudMsg(tr(`${IN_APP} 內建瀏覽器會擋 Google 登入。請點右上角「⋯」→「用預設瀏覽器開啟」，或改用 Email 登入。`,`Google blocks sign-in inside ${IN_APP}. Open this page in your browser, or sign in with email.`),true); return; }
+    try{ const st=await (await fetch(SB.url+'/auth/v1/settings',{ headers:{ apikey:SB.key } })).json(); if(st && st.external && st.external.google===false){ cloudMsg(tr('Google 登入還沒開通，請先用 Email 登入。','Google sign-in is not enabled yet. Please use email.'),true); return; } }catch(err){}
+    cloudMsg(tr('正在前往 Google…','Opening Google…'));
+    const { error }=await GM.sb.auth.signInWithOAuth({ provider:'google', options:{ redirectTo:backTo() } });
+    if(error) cloudMsg(/provider is not enabled|Unsupported provider/i.test(error.message)?tr('Google 登入還沒開通，請先用 Email 登入。','Google sign-in is not enabled yet. Please use email.'):error.message,true);
+  });
+  $('gc-email-open').addEventListener('click',()=>{ const f=$('gc-email-form'); f.hidden=!f.hidden; if(!f.hidden) $('gc-email').focus(); });
+  $('gc-email-form').addEventListener('submit',async e=>{ e.preventDefault(); if(!GM.sb) return;
+    const email=$('gc-email').value.trim(); if(!email) return; cloudMsg(tr('寄送中…','Sending…'));
+    const { error }=await GM.sb.auth.signInWithOtp({ email, options:{ emailRedirectTo:backTo() } });
+    cloudMsg(error?(/rate limit/i.test(error.message)?tr('寄信太頻繁，請過幾分鐘再試。','Too many emails; please try again in a few minutes.'):error.message):tr(`登入連結已寄到 ${email}，請在這台裝置上打開信裡的連結。`,`A sign-in link was sent to ${email}. Open it on this device.`),!!error); });
+  $('gacct').addEventListener('click',async e=>{ if(e.target.closest('#gc-logout') && GM.sb){ await GM.sb.auth.signOut(); cloudMsg(tr('已登出。','Signed out.')); } });
+  // 排行榜
+  const TIER_TXT={ over:['被噓下台','Booed out'], ok:['表現一般','Average'], good:['表現很好','Great'], president:['朝總統邁進','Presidential'] };
+  function fillBoardCities(){ const sel=$('gb-city'); if(sel.options.length) return;
+    sel.innerHTML=`<option value="">${tr('全部城市','All cities')}</option>`+Object.entries(G.cities).map(([id,c])=>`<option value="${id}">${esc(EN?c.en:c.name)}</option>`).join(''); }
+  async function loadBoard(){
+    const box=$('gboard'); if(!GM.sb){ box.hidden=true; return; } box.hidden=false; fillBoardCities();
+    const list=$('gb-list'), note=$('gb-note');
+    try{
+      const { data, error }=await GM.sb.rpc('get_leaderboard',{ p_city:$('gb-city').value||null, p_days:7, p_limit:20 }); if(error) throw error;
+      list.innerHTML=data.length?data.map(r=>{ const c=G.cities[r.city], t=TIER_TXT[r.tier]||['','']; const me=GM.sbUser&&r.mayor_name===GM.mayor;
+        return `<li class="${me?'me':''}"><span class="nm">${esc(r.mayor_name)}<small>${esc(c?(EN?c.en:c.name):r.city)}</small></span><span class="gb-tier ${esc(r.tier)}">${esc(tr(t[0],t[1]))}</span><b>${r.score}</b></li>`; }).join('')
+        :`<li class="empty" style="grid-template-columns:1fr">${tr('這週還沒有人上榜，搶第一個！','No one on the board this week yet. Be the first!')}</li>`;
+      note.textContent=GM.sbUser?tr('每人每座城市只列最高分；排行榜會公開你的市長姓名。','Each player’s best score per city is shown; your mayor name is public here.'):tr('登入後，成績才會上排行榜。排行榜只顯示市長姓名，不顯示帳號。','Sign in to get on the leaderboard. Only your mayor name is shown.');
+    }catch(err){ console.warn('讀取排行榜失敗',err); list.innerHTML=''; note.textContent=tr('排行榜暫時讀不到。','The leaderboard is unavailable right now.'); }
+  }
+  $('gb-city').addEventListener('change',loadBoard);
   /* ---------- 市長登錄 + 聘書 ---------- */
   GM.mayor=(store.get('pi-mayor')||'').slice(0,12);
   const loginEl=$('glogin'), nameIn=$('gname-in'), loginErr=$('glogin-err');
   nameIn.placeholder=tr('輸入你的名字','Enter your name');
   function renderLogin(){
     const on=!!GM.mayor; $('glogin-form').hidden=on; const d=$('glogin-done'); d.hidden=!on;
+    const cl=$('gcloud'); cl.hidden=!GM.sb || !!GM.sbUser;
+    if(GM.sb && !GM.sbUser) $('gcloud-lead').textContent=tr('想跨裝置保存紀錄、登上排行榜？用帳號登入（也可以只輸入名字直接玩）：','Want your records on every device and a spot on the leaderboard? Sign in (or just enter a name and play):');
     if(on) d.innerHTML=`<span>${tr('已登錄','Signed in as')}</span><b>${esc(tr('市長 ','Mayor '))}${esc(GM.mayor)}</b><button class="linkbtn" type="button" id="glogin-change">${tr('更換','Change')}</button>`;
     else if(!nameIn.value && GM.userName) nameIn.value=GM.userName.slice(0,12);
   }
   $('glogin-form').addEventListener('submit',e=>{ e.preventDefault(); const v=nameIn.value.replace(/\s+/g,' ').trim().slice(0,12);
-    if(!v){ nameIn.focus(); return; } GM.mayor=v; store.set('pi-mayor',v); loginErr.hidden=true; loginEl.classList.remove('need'); renderLogin(); ensureAudio(); beep(880,.08,.04);
+    if(!v){ nameIn.focus(); return; } GM.mayor=v; store.set('pi-mayor',v); saveProfileName(); loginErr.hidden=true; loginEl.classList.remove('need'); renderLogin(); ensureAudio(); beep(880,.08,.04);
     $('gcities').querySelector('.gcity')?.focus({ preventScroll:true }); scrollStartTo($('glogin')); });
   loginEl.addEventListener('click',e=>{ if(e.target.closest('#glogin-change')){ nameIn.value=GM.mayor; GM.mayor=''; renderLogin(); nameIn.focus(); nameIn.select(); } });
   renderLogin();
